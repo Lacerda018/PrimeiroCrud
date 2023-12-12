@@ -1,48 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD em PHP</title>
-</head>
-<body>
-
-<!-- Formulário -->
-<form method="post" action="update.php">
-    <label for="nome">Novo Nome:</label>
-    <input type="text" name="nome" required>
-
-    <label for="email">Novo E-mail:</label>
-    <input type="email" name="email" required>
-
-    <label for="senha">Nova Senha:</label>
-    <input type="password" name="senha" required>
-
-    <input type="submit" value="Atualizar">
-</form>
-
-</body>
-
 <?php
 
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+if (!file_exists(sprintf('%s/users.json', __DIR__))) {
+    echo 'Banco de dados não encontrado.';
 
-function atualizarArquivo(){
-    global $nome, $email, $senha;
-    $updateArquivo = fopen('arquivo'."$nome.txt",'w');
-    fwrite($updateArquivo, "Nome: $nome "."E-mail: $email "."Senha: $senha");
-    fclose($updateArquivo);
-
-    return $updateArquivo;
+    return;
 }
 
-if ("arquivo$nome" !== null){
-    atualizarArquivo();
-} else {
-    echo 'Arquivo não existe';
+$usuarios = json_decode(file_get_contents(sprintf('%s/users.json', __DIR__)), true);
+
+$usuarioParaAtualizar = null;
+
+foreach ($usuarios as $key => $usuario) {
+    if ($usuario['email'] === $_POST['email']) {
+        $usuarioParaAtualizar = $key;
+
+        break;
+    }
 }
 
+if (is_null($usuarioParaAtualizar)) {
+    echo 'Usuário não encontrado.';
 
-?>
+    return;
+}
+
+$usuarios[$usuarioParaAtualizar]['nome'] = $_POST['nome'];
+$usuarios[$usuarioParaAtualizar]['senha'] = $_POST['senha'];
+
+if (file_put_contents(sprintf('%s/users.json', __DIR__), json_encode($usuarios))) {
+    echo 'Update efetuado com sucesso!';
+}

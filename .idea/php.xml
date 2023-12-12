@@ -16,7 +16,7 @@
   <component name="PhpExternalFormatter">
     <option name="externalFormatter" value="PHP_CBF" />
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.0">
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.3">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpStanOptionsConfiguration">
