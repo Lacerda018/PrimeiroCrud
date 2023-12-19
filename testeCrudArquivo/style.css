@@ -1,0 +1,38 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.formulario{
+    background: blueviolet;
+    display: flex;
+    width: 50%;
+    margin: auto;
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    flex-direction: column;    
+}
+
+form{
+    margin: 0 auto;  
+}
+
+.form-control{
+    width: 500px;
+    margin-top: 5px;
+}
+
+
+input{
+    display: block;
+    margin: 0 0 20px;
+    padding: 10px 25px;
+    width: 100%;
+}
+
+
