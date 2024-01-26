@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Atualizar Cadastro</title>
+</head>
+<body>
+
+<!-- Formulário -->
+<div class="formulario">
+    <form method="post" action="update.php" class="mb-3">
+        <label for="nome" class="form-label ">Novo Nome:</label>
+        <input type="text" name="nome" required class="form-control form-control-sm">
+
+        <label for="email" class="form-label ">Novo E-mail:</label>
+        <input type="email" name="email" required class="form-control form-control-sm">
+
+        <label for="senha">Nova Senha:</label>
+        <input type="password" name="senha" required class="form-control form-control-sm">
+
+        <input type="submit" value="Atualizar" class="btn btn-primary">
+    </form>
+</div>
+</body>

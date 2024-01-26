@@ -1,0 +1,125 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    color: #fff;
+}
+
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-login100 {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
+.container-login100-form-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.login100-form-btn {
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+
+    width: 27%;
+    height: 50px;
+    border-radius: 25px;
+    background: #ba75ff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.login100-form-btn:hover {
+    background: #333333;
+}
+.wrap-login100 {
+    width: 960px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 177px 130px 33px 95px;
+}
+
+.formulario{
+    background: blueviolet;
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+    /*margin-top: 40px;*/
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    flex-direction: column;    
+}
+
+form{
+    margin: 0 auto;  
+}
+
+.form-control{
+    width: 500px;
+    margin-top: 5px;
+}
+
+
+input{
+    display: block;
+    margin: 0 0 20px;
+    padding: 10px 25px;
+    width: 100%;
+}
+
+
+
