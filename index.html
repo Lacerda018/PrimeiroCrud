@@ -2,35 +2,32 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Cadastro</title>
 </head>
 <body>
 <div class="limiter">
     <div class="container-login100">
-        <div class="login100-pic js-tilt" data-tilt>
-            <img src="./Lacaerda.png" alt="IMG">
-        </div>
+
         <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="./Lacaerda.png" alt="IMG">
+            </div>
 
             <div class="formulario">
                 <form method="post" action="create.php" class="mb-3">
-                    <label for="nome" class="form-label ">Nome:</label>
-                    <input type="text" name="nome" required class="form-control form-control-sm">
-
                     <label for="email">E-mail:</label>
                     <input type="email" name="email" required class="form-control form-control-sm">
 
                     <label for="senha">Senha:</label>
                     <input type="password" name="senha" required class="form-control form-control-sm">
 
-                    <input type="submit" value="Inserir" class="btn btn-primary">
+                    <input type="submit" value="Logar" class="btn btn-primary">
                 </form>
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn" onclick="">
-                        <a href="index.html">Login</a>
+                        <a href="create.html">Registre-se</a>
                     </button>
                     <button class="login100-form-btn">
                         <a href="update.html">Atualizar</a>
@@ -40,7 +37,9 @@
                     </button>
                 </div>
             </div>
+
         </div>
+
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

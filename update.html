@@ -8,20 +8,41 @@
     <title>Atualizar Cadastro</title>
 </head>
 <body>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="login100-pic js-tilt" data-tilt>
+            <img src="./Lacaerda.png" alt="IMG">
+        </div>
+            <div class="wrap-login100">
+            <!-- Formulário -->
+                <div class="formulario">
+                    <form method="post" action="update.php" class="mb-3">
+                        <label for="nome" class="form-label ">Novo Nome:</label>
+                        <input type="text" name="nome" required class="form-control form-control-sm">
 
-<!-- Formulário -->
-<div class="formulario">
-    <form method="post" action="update.php" class="mb-3">
-        <label for="nome" class="form-label ">Novo Nome:</label>
-        <input type="text" name="nome" required class="form-control form-control-sm">
+                        <label for="email" class="form-label ">Novo E-mail:</label>
+                        <input type="email" name="email" required class="form-control form-control-sm">
 
-        <label for="email" class="form-label ">Novo E-mail:</label>
-        <input type="email" name="email" required class="form-control form-control-sm">
+                        <label for="senha">Nova Senha:</label>
+                        <input type="password" name="senha" required class="form-control form-control-sm">
 
-        <label for="senha">Nova Senha:</label>
-        <input type="password" name="senha" required class="form-control form-control-sm">
+                        <input type="submit" value="Atualizar Cadastro" class="btn btn-primary">
+                    </form>
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            <a href="index.html">Login</a>
+                        </button>
+                        <button class="login100-form-btn" onclick="">
+                            <a href="create.html">Registre-se</a>
+                        </button>
 
-        <input type="submit" value="Atualizar" class="btn btn-primary">
-    </form>
+                        <button class="login100-form-btn" onclick="">
+                            <a href="delete.html">Deletar</a>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+    </div>
 </div>
 </body>
