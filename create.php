@@ -39,15 +39,3 @@ $usuariosAtuaisArray[] = $data;
 if (file_put_contents(sprintf('%s/users.json', __DIR__), json_encode($usuariosAtuaisArray))) {
     echo "Cadastro efetuado com sucesso!";
 }
-
-
-// Função para verificar se o email já existe no arquivo
-//function emailExists($email, $filename) {
-//    $emails = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-//    foreach ($emails as $existingEmail) {
-//        if (trim($existingEmail) === $email) {
-//            return true; // Email já existe
-//        }
-//    }
-//    return false; // Email não encontrado
-//}
