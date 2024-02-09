@@ -2,17 +2,27 @@
 
 namespace app\library;
 
-use Google\Client;
+
+use app\database\models\User;
 
 class Authenticate
 {
     public function authGoogle($dataClass)
     {
+        $user = new User;
+        $userFound = $user->findBy('email', $dataClass->email);
+        if(!$userFound){
+            $user->insert([
+                'firstName'=>$dataClass->givenName,
+                'lastName'=>$dataClass->familyName,
+                'email'=>$dataClass->email,
+                'avatar'=>$dataClass->picture,
+            ]);
+        }
 
-        $person = $service->people->get('people/me');
-
-        $nome = $person->getNames()[0]->getDisplayName();
-        $email = $person->getEmailAddresses()[0]->getValue();
+        $_SESSION['user'] = $userFound;
+        $_SESSION['auth'] = true;
+        header('location:/');
     }
 
     public function auth()

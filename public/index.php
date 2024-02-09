@@ -1,10 +1,14 @@
 <?php
 use \app\library\GoogleClient;
+use \app\library\Authenticate;
 require '../vendor/autoload.php';
 
 $googleClient = new GoogleClient;
 $googleClient->init();
-$googleClient->authorized();
+if($googleClient->authorized()){
+    $auth = new Authenticate;
+    $auth->authGoogle($googleClient->getData());
+};
 
 $authUrl = $googleClient->generateAuthLink();
 

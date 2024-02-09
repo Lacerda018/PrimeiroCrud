@@ -5,7 +5,7 @@ namespace app\library;
 use Google\Client;
 use Google\Service\Oauth2 as ServiceOAuth2;
 use GuzzleHttp\Client as GuzzleClient;
-use Google\Service\Oauth2\Userinfo;
+use Google\Service\Oauth2\UserInfo;
 class GoogleClient
 {
     public readonly Client $client;
@@ -33,7 +33,11 @@ class GoogleClient
            $this->client->setAccessToken($token['access_token']);
            $googleService = new ServiceOAuth2($this->client);
            $this->dataClass->$googleService->userinfo->get();
+
+           return true;
         }
+
+        return false;
     }
 
     public function getData()
@@ -45,4 +49,6 @@ class GoogleClient
     {
         return $this->client->createAuthUrl();
     }
+
 }
+
