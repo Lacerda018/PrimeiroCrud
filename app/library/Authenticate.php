@@ -29,4 +29,10 @@ class Authenticate
     {
 
     }
+
+    public function logout()
+    {
+        unset($_SESSION['user'], $_SESSION['auth']);
+        header('Location:/');
+    }
 }

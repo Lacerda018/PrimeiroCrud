@@ -5,6 +5,7 @@ namespace app\database\models;
 
 use app\database\Connect;
 
+
 class User extends Model
 {
     protected string $table = 'users';

@@ -1,14 +1,21 @@
 <?php
+session_start();
+
 use \app\library\GoogleClient;
 use \app\library\Authenticate;
+
 require '../vendor/autoload.php';
 
 $googleClient = new GoogleClient;
 $googleClient->init();
-if($googleClient->authorized()){
-    $auth = new Authenticate;
+$auth = new Authenticate;
+if ($googleClient->authorized()) {
     $auth->authGoogle($googleClient->getData());
-};
+}
+
+if(isset($_GET['logout'])) {
+    $auth->logout();
+}
 
 $authUrl = $googleClient->generateAuthLink();
 
@@ -24,6 +31,16 @@ $authUrl = $googleClient->generateAuthLink();
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    Olá,
+        <?php
+        if(isset($_SESSION['user'], $_SESSION['auth'])):
+            echo $_SESSION['user']->firstName;
+            ?>
+
+        <?php else: ?>
+            Visitante
+        <?php endif  ?>
+
 <div class="limiter">
     <div class="container-login100">
 
