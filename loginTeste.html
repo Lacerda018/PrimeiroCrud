@@ -1,27 +1,3 @@
-<?php
-session_start();
-
-use app\library\GoogleClient;
-use app\library\Authenticate;
-
-require '../vendor/autoload.php';
-
-$googleClient = new GoogleClient;
-$googleClient->init();
-$auth = new Authenticate;
-if ($googleClient->authorized()) {
-    $auth->authGoogle($googleClient->getData());
-}
-
-if(isset($_GET['logout'])) {
-    $auth->logout();
-}
-
-$authUrl = $googleClient->generateAuthLink();
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,16 +11,6 @@ $authUrl = $googleClient->generateAuthLink();
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    Olá,
-        <?php
-        if(isset($_SESSION['user'], $_SESSION['auth'])):
-            echo $_SESSION['user']->firstName . ' ' . $_SESSION['user']->lastName;
-            ?>
-
-        <?php else: ?>
-            Visitante
-        <?php endif ?>
-
 <div class="limiter">
     <div class="container-login100">
 
@@ -62,7 +28,7 @@ $authUrl = $googleClient->generateAuthLink();
                     <input type="password" name="senha" required class="form-control form-control-sm">
 
                     <input type="submit" value="Logar" class="btn btn-primary">
-                    <a href="<?php echo $authUrl; ?>">Logar com o google</a>
+                    <a href="">Logar com o google</a>
                 </form>
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn" onclick="">
