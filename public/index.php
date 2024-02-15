@@ -26,20 +26,21 @@ $authUrl = $googleClient->generateAuthLink();
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     Olá,
         <?php
         if(isset($_SESSION['user'], $_SESSION['auth'])):
-            echo $_SESSION['user']->firstName;
+            echo $_SESSION['user']->firstName . ' ' . $_SESSION['user']->lastName;
             ?>
 
         <?php else: ?>
             Visitante
-        <?php endif  ?>
+        <?php endif ?>
 
 <div class="limiter">
     <div class="container-login100">

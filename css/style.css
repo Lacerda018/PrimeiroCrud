@@ -27,7 +27,7 @@
 }
 
 body{
-    color: #fff;
+    color: #000;
     height: 100%;
     font-family: Poppins-Regular, sans-serif;
 }
@@ -165,6 +165,9 @@ form{
     margin-top: 5px;
 }
 
+label{
+    color: #fff;
+}
 
 input{
     display: block;
