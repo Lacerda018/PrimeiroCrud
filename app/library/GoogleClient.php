@@ -29,12 +29,6 @@ class GoogleClient
     public function authorized()
     {
         if(isset($_GET['code'])){
-           /*
-           $token = $this->client->fetchAccessTokenWithAuthCode($_GET['code']);
-           $this->client->setAccessToken($token['access_token']);
-           $googleService = new ServiceOAuth2($this->client);
-           $this->dataClass->$googleService->userinfo->get();*/
-
             $token = $this->client->fetchAccessTokenWithAuthCode($_GET['code']);
             $this->client->setAccessToken($token['access_token']);
             $googleService = new ServiceOauth2($this->client);

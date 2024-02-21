@@ -1,10 +1,57 @@
+<?php
+
+require '../vendor/autoload.php';
+
+$data = [
+    'nome' => $_POST['nome'],
+    'email' => $_POST['email'],
+    'senha' => password_hash($_POST['senha'], PASSWORD_DEFAULT)
+];
+
+$email = $_POST['email'];
+
+function emailExiste($email, $nomeArquivo)
+{
+    $emails = json_decode(file_get_contents($nomeArquivo), true);
+    foreach ($emails as $usuario){
+        if ($usuario['email'] === $email){
+            return true;
+        }
+    }
+    return false;
+}
+
+$nomeArquivo = sprintf('%s/users.json', __DIR__);
+
+if(emailExiste($email, $nomeArquivo)){
+    echo "Este e-mail já está cadastrado";
+    return;
+}
+
+if (!file_exists(sprintf('%s/users.json', __DIR__))) {
+    file_put_contents(sprintf('%s/users.json', __DIR__), json_encode([$data]));
+    echo "Cadastro efetuado com sucesso!";
+    return;
+}
+
+$usuariosAtuaisArray = json_decode(file_get_contents(sprintf('%s/users.json', __DIR__)));
+
+$usuariosAtuaisArray[] = $data;
+
+if (file_put_contents(sprintf('%s/users.json', __DIR__), json_encode($usuariosAtuaisArray))) {
+    echo "Cadastro efetuado com sucesso!";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/util.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Cadastro</title>
 </head>
 <body>
@@ -29,15 +76,9 @@
                     <input type="submit" value="Inserir" class="btn btn-primary">
                 </form>
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" onclick="">
-                        <a href="public/index.php">Login</a>
-                    </button>
-                    <button class="login100-form-btn">
-                        <a href="update.html">Atualizar</a>
-                    </button>
-                    <button class="login100-form-btn" onclick="">
-                        <a href="delete.html">Deletar</a>
-                    </button>
+                    <a href="public/index.php">Login</a>
+                    <a href="update.html">Atualizar</a>
+                    <a href="delete.html">Deletar</a>
                 </div>
             </div>
         </div>
