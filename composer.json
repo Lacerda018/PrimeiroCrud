@@ -13,6 +13,7 @@
     ],
     "require": {
         "google/apiclient": "^2.15",
-      "ext-curl": "*"
+      "ext-curl": "*",
+      "ext-pdo": "*"
     }
 }
